@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Task Management Design System - Modern, Professional Interface */
+
+@layer base {
+  :root {
+    --background: 248 250% 98%;
+    --foreground: 222 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 221 83% 48%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 16% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11.2%;
+
+    --destructive: 0 84% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 31% 91.4%;
+    --input: 214 31% 91.4%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+
+    /* Task Priority Colors */
+    --priority-low: 142 76% 36%;
+    --priority-low-bg: 142 76% 96%;
+    --priority-medium: 43 96% 56%;
+    --priority-medium-bg: 43 96% 95%;
+    --priority-high: 0 84% 60%;
+    --priority-high-bg: 0 84% 97%;
+
+    /* Task Status Colors */
+    --status-pending: 221 83% 53%;
+    --status-pending-bg: 221 83% 97%;
+    --status-completed: 142 76% 36%;
+    --status-completed-bg: 142 76% 96%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(221 83% 60%));
+    --gradient-surface: linear-gradient(180deg, hsl(var(--background)), hsl(248 250% 96%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--primary) / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -2px hsl(var(--primary) / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--primary) / 0.1), 0 4px 6px -4px hsl(var(--primary) / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(var(--primary) / 0.1), 0 8px 10px -6px hsl(var(--primary) / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Task Priority Badge Styles */
+  .priority-low {
+    @apply bg-[hsl(var(--priority-low-bg))] text-[hsl(var(--priority-low))] border-[hsl(var(--priority-low))] border;
+  }
+  
+  .priority-medium {
+    @apply bg-[hsl(var(--priority-medium-bg))] text-[hsl(var(--priority-medium))] border-[hsl(var(--priority-medium))] border;
+  }
+  
+  .priority-high {
+    @apply bg-[hsl(var(--priority-high-bg))] text-[hsl(var(--priority-high))] border-[hsl(var(--priority-high))] border;
+  }
+
+  /* Task Status Badge Styles */
+  .status-pending {
+    @apply bg-[hsl(var(--status-pending-bg))] text-[hsl(var(--status-pending))] border-[hsl(var(--status-pending))] border;
+  }
+  
+  .status-completed {
+    @apply bg-[hsl(var(--status-completed-bg))] text-[hsl(var(--status-completed))] border-[hsl(var(--status-completed))] border;
+  }
+
+  /* Custom Animations */
+  .task-card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-surface {
+    background: var(--gradient-surface);
+  }
+}
