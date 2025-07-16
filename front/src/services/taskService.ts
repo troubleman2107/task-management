@@ -90,11 +90,12 @@ export class TaskService {
   }
 
   static sortTasks(tasks: Task[], sortBy: 'dueDate' | 'priority' | 'createdAt', order: 'asc' | 'desc' = 'asc'): Task[] {
-    const sorted = [...tasks].sort((a, b) => {
+    return [...tasks].sort((a, b) => {
       let comparison = 0;
 
       switch (sortBy) {
         case 'dueDate': {
+          console.log('dueDate sort', a.dueDate, b.dueDate);
           comparison = new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
           break;
         }
@@ -109,8 +110,7 @@ export class TaskService {
         }
       }
 
-      return comparison;
+      return order === 'desc' ? -comparison : comparison;
     });
-    return order === 'desc' ? sorted.reverse() : sorted;
   }
 }
