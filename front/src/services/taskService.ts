@@ -90,7 +90,7 @@ export class TaskService {
   }
 
   static sortTasks(tasks: Task[], sortBy: 'dueDate' | 'priority' | 'createdAt', order: 'asc' | 'desc' = 'asc'): Task[] {
-    return [...tasks].sort((a, b) => {
+    const sorted = [...tasks].sort((a, b) => {
       let comparison = 0;
 
       switch (sortBy) {
@@ -109,7 +109,8 @@ export class TaskService {
         }
       }
 
-      return order === 'desc' ? -comparison : comparison;
+      return comparison;
     });
+    return order === 'desc' ? sorted.reverse() : sorted;
   }
 }
